@@ -64,3 +64,18 @@ function rem_gf_populate_agent_phone( $value ) {
 
     return $value;
 }
+
+/**
+ * Property ID
+ */
+add_filter( 'gform_field_value_property_id', 'rem_gf_populate_property_id' );
+
+function rem_gf_populate_property_id( $value ) {
+
+    if ( is_singular( 'rem_property' ) ) {
+
+        return get_the_ID();
+    }
+
+    return $value;
+}
